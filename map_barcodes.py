@@ -161,4 +161,5 @@ if __name__ == '__main__':
 
     # get a set of reads
     for record in renamed_fastq_records(args.fastq, barcode_map, args.max_barcode_diffs):
-        SeqIO.write(record, args.output, 'fastq')
+        if (record.seq)
+          SeqIO.write(record, args.output, 'fastq')
