@@ -31,6 +31,17 @@ if __name__ == '__main__':
         
         for fr, rr, ir in itertools.izip(fi, ri, ii):
             # check that the reads match
+            #if the ids are already formatted with /123, remove it
+            if fr.id.endswith("/1"):
+                fr.id = fr.id.rstrip("1")
+                fr.id = fr.id.rstrip("/")
+            if rr.id.endswith("/3"):
+                rr.id  = rr.id.rstrip("3")
+                rr.id = rr.id.rstrip("/")
+            if ir.id.endswith("/2"):
+                ir.id = ir.id.rstrip("2")
+                ir.id = ir.id.rstrip("/")
+                
             if not (fr.id == rr.id == ir.id):
                 raise RuntimeError("ids in corresponding entries did not match: %s %s %s" %(fr.id, rr.id, ir.id))
             
